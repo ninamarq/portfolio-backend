@@ -1,9 +1,12 @@
 const express = require('express');
-const { getProjects } = require('./controllers/projects');
+
+const ProjectRouter = require('./router/projects');
 
 const app = express();
 
-app.get('/', getProjects);
+app.use(express.json());
+
+app.use(ProjectRouter);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
