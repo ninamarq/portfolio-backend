@@ -19,7 +19,6 @@ const postProject = async (project) => {
 }
 
 const editProject = async (id, project) => {
-  console.log(id, project);
   const { name, github_link, img_link } = project;
 
   const newObj = {
@@ -35,12 +34,20 @@ const editProject = async (id, project) => {
     { where: { id } },
   );
 
-  console.log(updateProject); // confira o que é retornado quando o user com o id é ou não encontrado;
   return updateProject;
+};
+
+const deleteProject = async (id) => {
+  const deleteUser = await Projects.destroy(
+    { where: { id } },
+  );
+
+  return deleteUser;
 };
 
 module.exports = {
   allProjects,
   postProject,
   editProject,
+  deleteProject,
 }

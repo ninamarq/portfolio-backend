@@ -9,4 +9,6 @@ ProjectRouter.post('/', projectsControllers.postProject);
 
 ProjectRouter.put('/:id', projectsControllers.editProject);
 
+ProjectRouter.delete('/:id', projectsControllers.deleteProject);
+
 module.exports = ProjectRouter;

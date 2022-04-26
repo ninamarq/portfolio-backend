@@ -22,10 +22,23 @@ const editProject = async (req, res) => {
   try {
     const { id } = req.params;
     const editedProject = await services.editProject(id, req.body);
-    
+
     if(!editedProject) return res.status(404).json({ message: 'Projeto não encontrado' });
 
     return res.status(200).json({ message: 'Projeto atualizado com sucesso!' });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedProject = await services.deleteProject(id);
+    
+    if(!deletedProject) return res.status(404).json({ message: 'Projeto não encontrado' });
+
+    return res.status(200).json({ message: 'Projeto deletado com sucesso!' });
   } catch (error) {
     console.log(error);
   }
@@ -35,4 +48,5 @@ module.exports = {
   getProjects,
   postProject,
   editProject,
+  deleteProject,
 };
