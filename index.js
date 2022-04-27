@@ -1,7 +1,5 @@
 const express = require('express');
 
-require('dotenv').config();
-
 const ProjectRouter = require('./router/projects');
 
 const app = express();
