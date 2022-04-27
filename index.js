@@ -2,9 +2,19 @@ const express = require('express');
 
 const ProjectRouter = require('./router/projects');
 
+const cors = require('cors');
+
 const app = express();
 
 app.use(express.json());
+
+const corsOptions = {
+    origin: '*',
+    methods: 'GET, PUT, POST, DELETE',
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(ProjectRouter);
 
