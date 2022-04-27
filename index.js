@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(ProjectRouter);
 
-app.listen(process.env.DB_PORT, () => console.log(`Ouvindo na ${process.env.DB_PORT}`));
+app.listen(process.env.DB_PORT || 3000, () => console.log(`Ouvindo na ${process.env.DB_PORT}`));
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (request, response) => {
